@@ -1,0 +1,106 @@
+button{
+	text-transform: uppercase;
+	font-size: $base-font-size;
+	height: 2em;
+	outline: 0;
+	border: 0;
+	background: transparent;
+	z-index: $button-z;
+
+	svg{
+		height: 100%;
+
+		.stroke{
+			stroke: $colour-3;
+		}
+
+		.fill{
+			fill: $colour-3;
+		}
+	}
+
+	&:hover{
+		cursor: pointer;
+	}
+}
+
+.nexttimerbutton,
+.prevtimerbutton {
+	position: fixed;
+	bottom: 0;
+	height: 2em;
+
+	svg{
+		.stroke{
+			stroke: $blueberry-dark;
+		}
+	}
+
+	&:hover{
+		svg{
+			.stroke{
+				stroke: $colour-1;
+			}
+		}
+	}
+}
+
+.nexttimerbutton {
+	right: 0;
+}
+
+.prevtimerbutton {
+	left: 0;
+}
+
+.exitbutton {
+	position: fixed;
+	top: 0;
+	right: 0;
+	height: 2em;
+
+	svg{
+		.stroke{
+			stroke: $blueberry-dark;
+		}
+	}
+
+	&:hover{
+		svg{
+			.stroke{
+				stroke: $colour-1;
+			}
+		}
+	}
+}
+
+.pausebutton,
+.playbutton,
+.resetbutton {
+	svg{
+		.stroke{
+			stroke: $colour-1;
+		}
+		.fill{
+			fill: $colour-1;
+		}
+	}
+
+	&:hover{
+		svg{
+			.stroke{
+				stroke: $colour-2;
+			}
+			.fill{
+				fill: $colour-2;
+			}
+		}
+	}
+}
+
+.startbutton {
+	width: $startup-element-width;
+	background: $colour-2;
+	height: 2em;
+	color: $bg-color;
+}

@@ -1,0 +1,52 @@
+.teamlist{
+	height: calc(100vh - 100px);
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	margin: 0 auto;
+	padding-top: 5vh;
+	align-items: center;
+	align-content: center;
+
+	.nameblock {
+		width: $startup-element-width;
+		border-radius: 2px;
+		text-transform: uppercase;
+		margin: 0.5em;
+		height: 2em;
+		display: inline-block;
+		position: relative;
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		input[type=checkbox] {
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			position: absolute;
+			top: 0;
+			left: 0;
+			margin: 0;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
+		label {
+			line-height: 2em;
+			color: $colour-1;
+			border: 1px solid $colour-1;
+			width: 100%;
+			height: 100%;
+			display: block;
+		}
+
+		input[type=checkbox]:checked + label {
+			background: $colour-1;
+			color: $bg-color;
+		}
+	}
+}
