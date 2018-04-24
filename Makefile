@@ -7,15 +7,14 @@ dev:
 	docker-compose up
 
 start-local:
-	docker swarm init
-	docker secret create MYSQLUSER_PW ./secrets/MYSQLUSER_PW
-	docker secret create VOICERSS_URL ./secrets/VOICERSS_URL
-	docker stack deploy -c docker-stack.yml $(STACK)
+	docker swarm init; \
+	docker secret create MYSQLUSER_PW ./secrets/MYSQLUSER_PW; \
+	docker secret create VOICERSS_URL ./secrets/VOICERSS_URL; \
+	docker stack deploy -c docker-stack-local.yml $(STACK)
 
-swarm-prod:
-	docker swarm init
-	docker secret create MYSQLUSER_PW ./secrets/MYSQLUSER_PW
-	docker secret create VOICERSS_URL ./secrets/VOICERSS_URL
+stop-local:
+	docker stack rm $(STACK)
+	docker swarm leave --force
 
 remove-stack:
 	docker stack rm $(STACK)

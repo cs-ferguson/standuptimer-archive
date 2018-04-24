@@ -12,7 +12,7 @@ module.exports = [
 			let peeps = new Promise (function (resolve, reject) {
 
 				pool.query('SELECT * FROM test_table', function(err, results){
-					if(err) throw err;
+					if (err) throw err;
 
 					resolve(results);
 				});

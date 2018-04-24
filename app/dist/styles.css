@@ -1,0 +1,251 @@
+button {
+  text-transform: uppercase;
+  font-size: 16px;
+  height: 2em;
+  outline: 0;
+  border: 0;
+  background: transparent;
+  z-index: 100; }
+  button svg {
+    height: 100%; }
+    button svg .stroke {
+      stroke: #DCC7AA; }
+    button svg .fill {
+      fill: #DCC7AA; }
+  button:hover {
+    cursor: pointer; }
+
+.nexttimerbutton,
+.prevtimerbutton {
+  position: fixed;
+  bottom: 0;
+  height: 2em; }
+  .nexttimerbutton svg .stroke,
+  .prevtimerbutton svg .stroke {
+    stroke: #5a646e; }
+  .nexttimerbutton:hover svg .stroke,
+  .prevtimerbutton:hover svg .stroke {
+    stroke: #F7C331; }
+
+.nexttimerbutton {
+  right: 0; }
+
+.prevtimerbutton {
+  left: 0; }
+
+.exitbutton {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 2em; }
+  .exitbutton svg .stroke {
+    stroke: #5a646e; }
+  .exitbutton:hover svg .stroke {
+    stroke: #F7C331; }
+
+.pausebutton svg .stroke,
+.playbutton svg .stroke,
+.resetbutton svg .stroke {
+  stroke: #F7C331; }
+
+.pausebutton svg .fill,
+.playbutton svg .fill,
+.resetbutton svg .fill {
+  fill: #F7C331; }
+
+.pausebutton:hover svg .stroke,
+.playbutton:hover svg .stroke,
+.resetbutton:hover svg .stroke {
+  stroke: #F7882F; }
+
+.pausebutton:hover svg .fill,
+.playbutton:hover svg .fill,
+.resetbutton:hover svg .fill {
+  fill: #F7882F; }
+
+.startbutton {
+  width: 300px;
+  background: #F7882F;
+  height: 2em;
+  color: #6b7a8f; }
+
+.teamlist {
+  height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding-top: 5vh;
+  align-items: center;
+  align-content: center; }
+  .teamlist .nameblock {
+    width: 300px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    margin: 0.5em;
+    height: 2em;
+    display: inline-block;
+    position: relative; }
+    .teamlist .nameblock:hover {
+      cursor: pointer; }
+    .teamlist .nameblock input[type=checkbox] {
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 0; }
+      .teamlist .nameblock input[type=checkbox]:hover {
+        cursor: pointer; }
+    .teamlist .nameblock label {
+      line-height: 2em;
+      color: #F7C331;
+      border: 1px solid #F7C331;
+      width: 100%;
+      height: 100%;
+      display: block; }
+    .teamlist .nameblock input[type=checkbox]:checked + label {
+      background: #F7C331;
+      color: #6b7a8f; }
+
+.timer_cont {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  text-align: center; }
+  .timer_cont .flasher {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; }
+    .timer_cont .flasher h1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 0;
+      width: 100%;
+      text-align: center;
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 100vh;
+      z-index: 20;
+      animation-name: flash;
+      animation-duration: 1.5s;
+      animation-delay: 1s;
+      animation-timing-function: step-end;
+      animation-iteration-count: 2; }
+    .timer_cont .flasher img,
+    .timer_cont .flasher video {
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      flex-shrink: 0;
+      min-width: 100%;
+      min-height: 100%; }
+  .timer_cont .nameheader {
+    height: 15vh;
+    padding-top: 5vh;
+    margin-bottom: 2em;
+    width: 100vw;
+    line-height: 10vh;
+    font-size: 4em;
+    color: #F7C331;
+    display: block;
+    margin: 0;
+    text-transform: uppercase; }
+  .timer_cont .clock {
+    position: relative;
+    display: block;
+    width: 100vw;
+    height: 75vh;
+    line-height: 67vh;
+    text-align: center;
+    vertical-align: middle;
+    padding-bottom: 8vh; }
+    .timer_cont .clock .donut {
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      margin: auto;
+      width: 100%;
+      height: 67vh;
+      transform: scaleX(-1); }
+      .timer_cont .clock .donut svg {
+        height: 100%; }
+        .timer_cont .clock .donut svg .stroke {
+          stroke: #F7C331; }
+    .timer_cont .clock .time {
+      display: inline-block;
+      color: #F7C331;
+      width: 100%;
+      height: 100%;
+      font-size: 10em;
+      margin: 0; }
+    .timer_cont .clock .clockbuttons {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 8vh;
+      line-height: 8vh; }
+      .timer_cont .clock .clockbuttons button {
+        position: relative;
+        display: inline-block; }
+
+@keyframes flash {
+  0% {
+    color: #fff; }
+  10% {
+    color: #F7882F; }
+  20% {
+    color: #DCC7AA; }
+  30% {
+    color: #F7C331; }
+  40% {
+    color: #DCC7AA; }
+  50% {
+    color: #fff; }
+  60% {
+    color: #F7882F; }
+  70% {
+    color: #F7C331; }
+  80% {
+    color: #DCC7AA; }
+  90% {
+    color: #F7882F; }
+  100% {
+    color: #fff; } }
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box; }
+
+html *, html *:before, html *:after {
+  box-sizing: inherit; }
+
+body {
+  font-family: 'Hind', sans-serif;
+  height: 100vh;
+  width: 100vw;
+  background: #6b7a8f;
+  margin: 0; }
+
+img {
+  outline: none;
+  border: 0; }
+
+#app {
+  text-align: center;
+  height: 100vh;
+  width: 100vw; }
