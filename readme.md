@@ -1,5 +1,5 @@
 # Stand-up Timer
-Quit your jibber-jabbering and get to the point. Feel the pressure of the countdown timer is at inexorably ticks down towards zero. Watch as your team-mates crumble when the end bell chimes - absorb the shame emanating from them as they come to terms with their inability to succinctly share their activities yesterday, today, and what their current blockers are. DRINK IT IN!
+Quit your jibber-jabbering and get to the point. Feel the pressure of the countdown timer as it inexorably ticks down towards zero. Watch as your team-mates crumble when the end bell chimes - absorb the shame emanating from them as they come to terms with their inability to succinctly share their activities yesterday, today, and what their current blockers are. DRINK IT IN!
 
 This is a stand-up timer - although very useable, its main purpose was for me to have a little mess about with React, Docker and Hapi. It is, as a result, *massively over-architected in so many ways*.
 
@@ -8,7 +8,7 @@ An internet connection is required to access the text-to-speech api, and to show
 ### Initialising
 When the app is intialised you will be presented with a list of your team members. These can be toggled to remove them from the stand-up if they are not in attendance.
 
-Clicking start will start the timer.
+Clicking 'Start' will start the timer.
 
 ### The Timer
 When the timer is started, each team member will be chosen in random order. You will see a flash screen displaying the team member's surname. If a background image is set, it will play the audio and show the background image. If a video is set, the video will be played in the background with its audio, and the surname audio will not be played.
@@ -27,7 +27,7 @@ In dev, the secrets are pulled from files in the *secrets* folder. These should 
 If running locally using `make start-local` the Docker swarm will be initialised and secrets added to the swarm for you.
 When deploying, the secrets must be created on the docker swarm hosting the application.
 The application uses the following secrets:
-* VOICERSS_URL - The application makes use of the Voice RSS text to speech service [http://www.voicerss.org/]. To use this you must set up your own api key. This secret should be the url for the get request, minus the text you wish to convert to audio: http://api.voicerss.org/?key=<YOUR API KEY>&hl=en-us&src=
+* VOICERSS_URL - The application makes use of the Voice RSS text to speech service [http://www.voicerss.org/]. To use this you must set up your own api key. This secret should be the url for the get request, minus the text you wish to convert to audio: http://api.voicerss.org/?key=(YOUR API KEY)&hl=en-us&src=
 * MYSQLUSER_PW - Your chosen password for the mysql db user created by the application
 
 ### Installation
