@@ -21,7 +21,6 @@ services:
     ports:
       - 8083:8083
     secrets:
-      - VOICERSS_URL
       - MYSQLUSER_PW
     depends_on:
       - db
@@ -38,8 +37,6 @@ services:
       - sutnet
 
 secrets:
-  VOICERSS_URL:
-    external: true
   MYSQLUSER_PW:
     external: true
 

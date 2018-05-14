@@ -27,12 +27,13 @@ In dev, the secrets are pulled from files in the *secrets* folder. These should 
 If running locally using `make start-local` the Docker swarm will be initialised and secrets added to the swarm for you.
 When deploying, the secrets must be created on the docker swarm hosting the application.
 The application uses the following secrets:
-* VOICERSS_URL - The application makes use of the Voice RSS text to speech service [http://www.voicerss.org/]. To use this you must set up your own api key. This secret should be the url for the get request, minus the text you wish to convert to audio: http://api.voicerss.org/?key=(YOUR API KEY)&hl=en-us&src=
 * MYSQLUSER_PW - Your chosen password for the mysql db user created by the application
 
 ### Installation
 1. Install Docker.
 2. Clone the repo.
+3. Set up an account with Voice RSS and obtain an API Key.
+4. Create *secrets* folder in the main directory, and populate with secret files listed above.
 
 ### Develop
 If you want to mess about with the code just run `make dev`.
@@ -54,14 +55,12 @@ This project is licensed under the MIT License.
 ## Other Notes
 The App uses webpack v4 zero config; this means there is no need to specify entry points and outputs but requires some config for babel ( which could be done with module binding in package.json script but I prefer to avoid big npm scripts).
 
-## Coming Soon
+## Coming Soon (Possibly)
 ### Configuration Settings
 Basically, a GUI to set timer length. But who knows what could end up in there.
 ### Edit Team Members In-App
 A GUI to edit team member attributes so you don't need to hack it through the sqldump file.
 ### Actual ability to deploy it
 Yeah, so I can't work out how to deploy the database service in production and perform the initial set up gracefully (without copying the file to production node with scp). I'll get there though.
-### Change Voice RSS secret to just be an API key!
-Okay, that is overly complex so I will change it so you only have to put your API key in the secret!
 ### Error Handling
 Yes yes I'm not handling errors properly. Or at all for that matter.

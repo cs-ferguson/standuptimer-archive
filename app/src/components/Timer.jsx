@@ -1,7 +1,7 @@
 import React from 'react';
 import Clock from './Clock.jsx';
 import {ExitButton, NextTimerButton, PrevTimerButton} from './Buttons.jsx';
-import {Audio, Video, Image} from './Media.jsx';
+import {Audio, SpeechApiAudio, Video, Image} from './Media.jsx';
 
 export default class TimerContainer extends React.Component {
 	constructor(props) {
@@ -84,7 +84,7 @@ class Timer extends React.Component {
 		const media_element = this.props.teammember.video ? (
 			<Video src={this.props.teammember.video} />
 		) : (
-			<Audio audio={this.props.teammember.audio} phrase={true} />
+			<SpeechApiAudio audio={this.props.teammember.audio} />
 		)
 
 		const image_element = this.props.teammember.background ? (

@@ -9,9 +9,9 @@
 /*GRANT ALL ON sut_db.* TO 'user'@'%';*/
 
 USE sut_db;
-DROP TABLE IF EXISTS `test_table`;
+DROP TABLE IF EXISTS `team`;
 
-CREATE TABLE `test_table` (
+CREATE TABLE `team` (
   `uid` int(3) NOT NULL AUTO_INCREMENT,
   `name` varchar(128) NOT NULL,
 	`audio` varchar(128) DEFAULT NULL,
@@ -20,11 +20,11 @@ CREATE TABLE `test_table` (
 	PRIMARY KEY (uid)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO test_table (name, audio, background) VALUES ('McTesterson', 'mctesterson', 'https://assets.teenvogue.com/photos/57364392a57ac7fa6b49c398/master/w_757,c_limit/seth-cohen-5.gif');
-INSERT INTO test_table (name, audio, video) VALUES ('Person 2','person 2','https://s3-eu-west-1.amazonaws.com/cfergo/coutts.mp4');
-INSERT INTO test_table (name, audio) VALUES ('Person 3','person 3');
-INSERT INTO test_table (name, audio) VALUES ('Person 4','person 4');
-INSERT INTO test_table (name, audio) VALUES ('Person 5','person 5');
+INSERT INTO team (name, audio, background) VALUES ('McTesterson', 'mctesterson', 'https://assets.teenvogue.com/photos/57364392a57ac7fa6b49c398/master/w_757,c_limit/seth-cohen-5.gif');
+INSERT INTO team (name, audio, video) VALUES ('Person 2','person 2','https://s3-eu-west-1.amazonaws.com/cfergo/coutts.mp4');
+INSERT INTO team (name, audio) VALUES ('Person 3','person 3');
+INSERT INTO team (name, audio) VALUES ('Person 4','person 4');
+INSERT INTO team (name, audio) VALUES ('Person 5','person 5');
 
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;

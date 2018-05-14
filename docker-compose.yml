@@ -26,7 +26,6 @@ services:
     ports:
       - 8083:8083
     secrets:
-      - VOICERSS_URL
       - MYSQLUSER_PW
     links:
       - db:db
@@ -52,8 +51,6 @@ services:
       - sutnet
 
 secrets:
-  VOICERSS_URL:
-    file: ./secrets/VOICERSS_URL
   MYSQLUSER_PW:
     file: ./secrets/MYSQLUSER_PW
 

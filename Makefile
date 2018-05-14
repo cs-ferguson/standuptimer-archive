@@ -9,7 +9,6 @@ dev:
 start-local:
 	docker swarm init; \
 	docker secret create MYSQLUSER_PW ./secrets/MYSQLUSER_PW; \
-	docker secret create VOICERSS_URL ./secrets/VOICERSS_URL; \
 	docker stack deploy -c docker-stack-local.yml $(STACK)
 
 stop-local:

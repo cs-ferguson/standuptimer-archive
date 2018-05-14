@@ -19,7 +19,11 @@
 
 		&:hover {
 			cursor: pointer;
+			& >button.editIcon {
+				opacity: 1;
+			}
 		}
+
 
 		input[type=checkbox] {
 			width: 100%;
@@ -47,6 +51,30 @@
 		input[type=checkbox]:checked + label {
 			background: $colour-1;
 			color: $bg-color;
+		}
+
+		input[type=checkbox]:not(:checked) + label + button.editIcon  {
+			svg {
+				.fill {
+					fill: $colour-1;
+				}
+			}
+		}
+
+		button.editIcon {
+			position: absolute;
+			right: 0;
+			top: 0;
+			height: 100%;
+			padding: 8px;
+			opacity: 0;
+			transition: 0.5s;
+
+			svg {
+				.fill {
+					fill: $bg-color;
+				}
+			}
 		}
 	}
 }
