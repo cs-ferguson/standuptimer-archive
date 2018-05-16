@@ -47,15 +47,33 @@ module.exports = [
 	},
 	{
 		method: 'POST',
-		path: '/member/{details}',
-		handler: (req, h) => {
+		path: '/member',
+		config: {
+			handler: (req, h) => {
+				console.log(req.payload.uid);
+				console.log(req.payload.name);
+				let uid = req.payload.uid;
+				let name = req.payload.name;
 
-			let teammember = encodeURIComponent(req.params.details);
+				let update = new Promise (function (resolve, reject) {
 
-			console.log('test');
-			console.log(teammember);
-			return teammember;
+					pool.query('UPDATE team SET name = ? WHERE uid = ?', [name,uid], function(err, results){
+						if (err) {
+							console.log(err);
+							resolve(err);
+						};
 
+						resolve(true);
+					});
+				});
+
+				return update;
+
+			},
+			payload: {
+				output: 'data',
+				parse: true
+			}
 		}
 	},
 	{

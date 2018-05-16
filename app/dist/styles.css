@@ -69,6 +69,22 @@ button {
   height: 2em;
   color: #6b7a8f; }
 
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 900;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2em; }
+
+.modal {
+  background: #6b7a8f;
+  margin: 0 auto;
+  padding: 1.5em;
+  display: block; }
+
 .teamlist {
   height: calc(100vh - 100px);
   display: flex;
@@ -88,6 +104,8 @@ button {
     position: relative; }
     .teamlist .nameblock:hover {
       cursor: pointer; }
+      .teamlist .nameblock:hover > button.editIcon {
+        opacity: 1; }
     .teamlist .nameblock input[type=checkbox] {
       width: 100%;
       height: 100%;
@@ -108,6 +126,18 @@ button {
     .teamlist .nameblock input[type=checkbox]:checked + label {
       background: #F7C331;
       color: #6b7a8f; }
+    .teamlist .nameblock input[type=checkbox]:not(:checked) + label + button.editIcon svg .fill {
+      fill: #F7C331; }
+    .teamlist .nameblock button.editIcon {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      padding: 8px;
+      opacity: 0;
+      transition: 0.5s; }
+      .teamlist .nameblock button.editIcon svg .fill {
+        fill: #6b7a8f; }
 
 .timer_cont {
   display: block;

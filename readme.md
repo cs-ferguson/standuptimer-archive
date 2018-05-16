@@ -4,7 +4,7 @@ Quit your jibber-jabbering and get to the point. Feel the pressure of the countd
 This is a stand-up timer - although very useable, its main purpose was for me to have a little mess about with React, Docker and Hapi. It is, as a result, *massively over-architected in so many ways*.
 
 ## Useage
-An internet connection is required to access the text-to-speech api, and to show the background and video links.
+An internet connection is required to download any background and video links, and depending on browser may be required for the Speech API.
 ### Initialising
 When the app is intialised you will be presented with a list of your team members. These can be toggled to remove them from the stand-up if they are not in attendance.
 

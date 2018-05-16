@@ -1,7 +1,6 @@
 import React from 'react';
 import {ModalWrapper, CloseModal} from './ModalWrapper.jsx';
 const http = require('http');
-const querystring = require('querystring');
 
 export default class EditMemberModal extends React.Component {
 	constructor(props) {
@@ -10,11 +9,11 @@ export default class EditMemberModal extends React.Component {
 		this.state = {
 			'teammember': null
 		}
+
+		this.setMember = this.setMember.bind(this);
 	}
 
-	componentDidMount() {
-		let uid = this.props.modalProps.uid;
-
+	setMember(uid) {
 		let member = new Promise (function (resolve, reject) {
 			const url = 'http://localhost:8083/member/' + uid;
 			http.get(url, res => {
@@ -39,6 +38,11 @@ export default class EditMemberModal extends React.Component {
 		})
 	}
 
+	componentDidMount() {
+		let uid = this.props.modalProps.uid;
+		this.setMember(uid);
+	}
+
 	render() {
 		if(this.state.teammember) {
 			return (
@@ -54,10 +58,13 @@ export default class EditMemberModal extends React.Component {
 	}
 }
 
+
+
 class EditMemberForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			'uid': '',
 			'nameValue': ''
 		};
 
@@ -77,23 +84,30 @@ class EditMemberForm extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 
-		const teammember = this.state.nameValue;
+		const uid = this.state.uid;
+		const name = this.state.nameValue;
 
-		console.log(this.state.nameValue);
-		console.log(teammember);
+		const body = JSON.stringify({
+			'uid': uid,
+			'name': name
+		});
+		console.log(body);
 
 		const post_options = {
-			host: 'api',
+			host: 'localhost',
 			port: 8083,
 			path: '/member',
 			method: 'POST',
-			headers: { 'Content-type': 'application/x-www-form-urlencoded' }
+			headers: {
+				'Content-Type': 'application/json',
+				'Content-Length': Buffer.byteLength(body)
+			}
 		}
 
 		const post_req = http.request(post_options, function(res) {
 			res.setEncoding('utf-8');
-			res.on('data', function(chunk) {
-				console.log('response:');
+			res.on('end', function() {
+
 			});
 		})
 
@@ -101,13 +115,14 @@ class EditMemberForm extends React.Component {
 			console.log('error: '+err.message);
 		})
 
-		post_req.write(teammember);
-		post_req.end;
+		post_req.write(body);
+		post_req.end();
 	}
 
 	componentDidMount() {
-		console.log(this.props.teammember.name);
+		console.log(this.props.teammember);
 		this.setState({
+			'uid': this.props.teammember.uid,
 			'nameValue': this.props.teammember.name
 		})
 	}

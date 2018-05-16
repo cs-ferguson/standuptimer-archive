@@ -6,8 +6,8 @@ const http = require('http');
 
 const url = 'http://localhost:8083/peeps';
 http.get(url, res => {
-  res.setEncoding("utf8");
-  let body = "";
+  res.setEncoding('utf8');
+  let body = '';
 	res.on('error', (e) => {
 		console.log(e);
 	});
